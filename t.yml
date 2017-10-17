@@ -13,6 +13,11 @@
     - shell: cat ./append_here
       delegate_to: localhost
       run_once: yes
+      register: out
+
+    - debug: var=out
+      delegate_to: localhost
+      run_once: yes
 
     - lineinfile:
         path: ./append_here
@@ -23,5 +28,10 @@
       run_once: yes
 
     - shell: cat ./append_here
+      delegate_to: localhost
+      run_once: yes
+      register: out
+
+    - debug: var=out
       delegate_to: localhost
       run_once: yes
