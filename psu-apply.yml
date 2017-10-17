@@ -1,0 +1,6 @@
+## Example Playbook
+
+    - hosts: servers
+      roles:
+         - role: psu-apply
+

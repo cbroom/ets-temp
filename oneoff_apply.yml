@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  tasks:
+   - ping:
+   - name: Run pre-check tasks
+     include: ansible-oracle-psu/tasks/oneoff_apply.yml
