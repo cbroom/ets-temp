@@ -1,11 +1,13 @@
 ---
 - hosts: 192.168.124.32 
   tasks:
-    - shell: whoami
+    - shell: whoami 
       register: out
     - debug: var=out
+
     - shell: whoami
       become_user: jboss
       become: yes
+      become_method: sudo
       register: out
     - debug: var=out

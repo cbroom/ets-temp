@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  become: yes
+  vars_files:
+    - vars.yml
+  tasks:
+    - shell: cat ./append_here
+    - lineinfile:
+        path: ./append_here
+        insertafter: EOF
+        line: "{{ user_limit }}"
+        state: present
+    - shell: cat ./append_here
