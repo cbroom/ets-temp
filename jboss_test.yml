@@ -6,5 +6,6 @@
     - debug: var=out
     - shell: whoami
       become_user: jboss
+      become: yes
       register: out
     - debug: var=out
