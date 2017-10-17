@@ -4,9 +4,7 @@
     - shell: whoami
       register: out
     - debug: var=out
-    - shell: sudo su -jboss
-      register: out
-    - debug: var=out
     - shell: whoami
+      become_user: jboss
       register: out
     - debug: var=out
