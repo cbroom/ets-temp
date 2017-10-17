@@ -1,0 +1,12 @@
+---
+- hosts: 192.168.124.32 
+  tasks:
+    - shell: whoami
+      register: out
+    - debug: var=out
+    - shell: sudo su -jboss
+      register: out
+    - debug: var=out
+    - shell: whoami
+      register: out
+    - debug: var=out
