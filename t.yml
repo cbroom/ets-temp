@@ -1,22 +1,27 @@
 ---
 - hosts: all
   gather_facts: no
+
   vars_files:
     - vars.yml
+
   tasks:
     - debug: var=user_limit
-      delegate_to: localhostA
+      delegate_to: localhost
       run_once: yes
+
     - shell: cat ./append_here
-      delegate_to: localhostA
+      delegate_to: localhost
       run_once: yes
+
     - lineinfile:
         path: ./append_here
         insertafter: EOF
         line: "{{ user_limit }}"
         state: present
-      delegate_to: localhostA
+      delegate_to: localhost
       run_once: yes
+
     - shell: cat ./append_here
-      delegate_to: localhostA
+      delegate_to: localhost
       run_once: yes
